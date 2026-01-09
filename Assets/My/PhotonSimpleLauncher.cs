@@ -32,7 +32,7 @@ public class PhotonSimpleLauncher : MonoBehaviourPunCallbacks
             matchingType: MatchmakingMode.FillRoom,
             roomOptions: roomOptions,           // Use the options defined above
             sqlLobbyFilter: null,               // No SQL filter
-            roomName: null                      // Let Photon pick a random name if creating
+            roomName: "HawkTest1"                      // Let Photon pick a random name if creating
         );
     }
 
