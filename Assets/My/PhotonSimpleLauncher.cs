@@ -22,8 +22,14 @@ public class PhotonSimpleLauncher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("PhotonSimpleLauncher: Joined a room.");
+        Debug.Log($"PhotonSimpleLauncher: {playerPrefab.name} joined a room.");
         PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity);
+    }
+
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        Debug.Log($"PhotonSimpleLauncher: Failed to join a random room (Code: {returnCode}, Message: {message}), creating a new room.");
+        PhotonNetwork.CreateRoom("MyTestRoom1"); // Creates a room with a random name
     }
 
 }
